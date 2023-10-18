@@ -9,12 +9,15 @@ echo '                       __
 for (( ; ; ))
 do
    read -p "> " file
+   file2=$(echo $file | tr -d "'")
+   file1=$(echo $file2 | tr -d '"')
+   echo "$file1"
    if [[ "$OSTYPE" == "darwin"* ]]; then
-        shasum -a 256 "$file"
-        md5 "$file"
+        shasum -a 256 "$file1"
+        md5 "$file1"
    else
-        sha256sum "$file"
-        md5sum "$file"
+        sha256sum "$file1"
+        md5sum "$file1"
    fi
 
    
