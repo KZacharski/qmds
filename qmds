@@ -1,0 +1,21 @@
+#!/bin/bash
+echo '                       __    
+  ____ _____ ___  ____/ /____
+ / __ `/ __ `__ \/ __  / ___/
+/ /_/ / / / / / / /_/ (__  ) 
+\__, /_/ /_/ /_/\__,_/____/  
+  /_/                        
+'
+for (( ; ; ))
+do
+   read -p "> " file
+   if [[ "$OSTYPE" == "darwin"* ]]; then
+        shasum -a 256 "$file"
+        md5 "$file"
+   else
+        sha256sum "$file"
+        md5sum "$file"
+   fi
+
+   
+done
